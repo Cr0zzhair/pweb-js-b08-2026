@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masuk & Daftar - Koperasi Kota</title>
+  <link rel="stylesheet" href="landing.css">
+  <script src="landing.js" defer></script>
+</head>
+
+<body>
+  <div class="wadah-landing">
+    <div class="kolom-kiri">
+      <div class="konten-info">
+        <div class="wadah-logo-kiri">
+          <img src="KoeprasiKota.jpg" alt="Logo Koperasi Kota" class="logo-gambar">
+        </div>
+        <h2>Belanja Mudah & Hemat</h2>
+        <p>Pusat belanja kebutuhan pokok dan produk harian terlengkap untuk seluruh warga kota.</p>
+      </div>
+    </div>
+
+    <div class="kolom-kanan">
+      <div class="kartu-login">
+        <div class="logo-mobile">
+          <img src="KoeprasiKota.jpg" alt="Logo Koperasi Kota" class="logo-gambar-mobile">
+        </div>
+
+        <div class="tab-pilihan">
+          <button type="button" id="tabLogin" class="tombol-tab aktif">Masuk</button>
+          <button type="button" id="tabRegist" class="tombol-tab">Daftar Akun</button>
+        </div>
+
+        <div id="wadahFormLogin">
+          <div class="header-form">
+            <h2>Masuk ke Akun</h2>
+            <p>Gunakan username & password yang terdaftar</p>
+          </div>
+
+          <div id="pesanError" class="pesan-notif pesan-error tersembunyi"></div>
+          <div id="pesanSuksesLogin" class="pesan-notif pesan-sukses tersembunyi"></div>
+          <form id="formLogin">
+            <div class="grup-input">
+              <label for="inputUser">Username</label>
+              <input type="text" id="inputUser" placeholder="Masukkan username" required>
+            </div>
+
+            <div class="grup-input">
+              <label for="inputPass">Password</label>
+              <input type="password" id="inputPass" placeholder="Masukkan password" required>
+            </div>
+
+            <div id="indikatorLoading" class="indikator-loading tersembunyi">
+              <span class="spinner"></span> Memverifikasi akun...
+            </div>
+
+            <button type="submit" id="tombolMasuk" class="tombol-aksi">
+              Masuk
+            </button>
+          </form>
+
+          <div class="footer-form">
+            <p>Belum punya akun? <a href="#" id="linkKeRegist">Daftar sekarang</a></p>
+          </div>
+        </div>
+
+        <div id="wadahFormRegist" class="tersembunyi">
+          <div class="header-form">
+            <h2>Daftar Akun Baru</h2>
+            <p>Lengkapi data untuk menjadi anggota koperasi</p>
+          </div>
+
+          <div id="pesanErrorRegist" class="pesan-notif pesan-error tersembunyi"></div>
+          <div id="pesanSuksesRegist" class="pesan-notif pesan-sukses tersembunyi"></div>
+
+          <form id="formRegist">
+            <div class="grup-input">
+              <label for="inputNamaBaru">Nama Lengkap</label>
+              <input type="text" id="inputNamaBaru" placeholder="Contoh: Budi Santoso" required>
+            </div>
+
+            <div class="grup-input">
+              <label for="inputUserBaru">Username</label>
+              <input type="text" id="inputUserBaru" placeholder="Buat username unik" required>
+            </div>
+
+            <div class="grup-input">
+              <label for="inputPassBaru">Password</label>
+              <input type="password" id="inputPassBaru" placeholder="Buat password" required>
+            </div>
+
+            <button type="submit" id="tombolDaftar" class="tombol-aksi">
+              Daftar Akun
+            </button>
+          </form>
+
+          <div class="footer-form">
+            <p>Sudah punya akun? <a href="#" id="linkKeLogin">Masuk di sini</a></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

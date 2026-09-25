@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katalog Produk - Koperasi Kota</title>
+  <link rel="stylesheet" href="main.css">
+  <script src="main.js" defer></script>
+</head>
+
+<body>
+
+  <header class="bilah-atas">
+    <div class="wadah-nav">
+      <div class="logo-area">
+        <img src="KoeprasiKota.jpg" alt="Logo Koperasi Kota" id="logoUtama">
+      </div>
+
+      <div class="area-cari">
+        <input type="text" id="inputCari" placeholder="Cari produk atau kategori di Koperasi Kota...">
+        <button type="button" id="tombolCari">Cari</button>
+      </div>
+
+
+      <div class="area-user">
+        <span class="salam-user">Halo, <strong id="namaPengguna">Pengguna</strong>!</span>
+        <button type="button" id="tombolKeranjang" class="tombol-ikon-keranjang">
+          🛒 Keranjang (<span id="badgeKeranjang">0</span>)
+        </button>
+        <button type="button" id="tombolLogout" class="tombol-keluar">
+          Keluar
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <section class="bilah-kontrol">
+    <div class="wadah-kontrol">
+      <div class="grup-filter">
+        <label for="pilihKategori">Kategori:</label>
+        <select id="pilihKategori">
+          <option value="semua">Semua Kategori</option>
+        </select>
+      </div>
+
+      <div class="grup-urutan">
+        <label for="pilihUrutan">Urutkan:</label>
+        <select id="pilihUrutan">
+          <option value="bawaan">Paling Sesuai</option>
+          <option value="harga-rendah">Harga Terendah</option>
+          <option value="harga-tinggi">Harga Tertinggi</option>
+          <option value="rating-tinggi">Rating Tertinggi</option>
+        </select>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="area-banner">
+    <div class="wadah-banner">
+      <div class="kartu-banner">
+        <h2>Belanja Hemat Spesial Anggota Koperasi!</h2>
+        <p>Dapatkan diskon hingga 30% untuk aneka produk pilihan hari ini.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <main class="konten-katalog">
+    <div class="wadah-utama">
+
+      <div class="judul-katalog">
+        <h3>Daftar Produk Koperasi</h3>
+        <span id="infoJumlahProduk">Menampilkan produk...</span>
+      </div>
+
+      <div id="pesanErrorProduk" class="pesan-error-global tersembunyi"></div>
+      <div id="loadingProduk" class="indikator-loading-produk">
+        <span>Memuat data produk...</span>
+      </div>
+
+      <div id="wadahProduk" class="grid-produk">
+      </div>
+
+      <div class="area-muat-lebih">
+        <button type="button" id="tombolMuatLebih" class="tombol-muat-lebih tersembunyi">
+          Muat Lebih Banyak
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="modalDetail" class="wadah-modal tersembunyi">
+    <div class="isi-modal">
+      <button type="button" id="tutupModalDetail" class="tombol-tutup">&times;</button>
+
+      <div class="detail-kiri">
+        <img id="modalGambar" src="" alt="Gambar Produk">
+      </div>
+
+      <div class="detail-kanan">
+        <span id="modalKategori" class="label-kategori"></span>
+        <h2 id="modalNama"></h2>
+        <p class="brand-produk">Merek: <strong id="modalBrand"></strong></p>
+
+        <div class="rating-stok">
+          <span>⭐ <span id="modalRating"></span></span>
+          <span>Stok: <strong id="modalStok"></strong></span>
+        </div>
+
+        <div class="harga-area">
+          <span id="modalDiskon" class="badge-diskon"></span>
+          <span id="modalHarga" class="harga-utama"></span>
+        </div>
+
+        <p id="modalDeskripsi" class="deskripsi-teks"></p>
+
+        <button type="button" id="modalTombolTambah" class="tombol-tambah-modal">
+          + Tambah ke Keranjang
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalKeranjang" class="wadah-modal tersembunyi">
+    <div class="isi-modal-keranjang">
+      <div class="header-modal-keranjang">
+        <h3>Keranjang Belanja Anda</h3>
+        <button type="button" id="tutupModalKeranjang" class="tombol-tutup">&times;</button>
+      </div>
+
+
+      <div id="daftarItemKeranjang" class="daftar-item-keranjang">
+      </div>
+
+      <div class="footer-modal-keranjang">
+        <div class="total-belanja-area">
+          <span>Total Pembayaran:</span>
+          <strong id="totalHargaKeranjang">$0.00</strong>
+        </div>
+        <button type="button" id="tombolKosongkanKeranjang" class="tombol-kosongkan">
+          Kosongkan Keranjang
+        </button>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
