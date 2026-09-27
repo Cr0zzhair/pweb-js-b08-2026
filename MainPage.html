@@ -4,101 +4,140 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Katalog Produk - Koperasi Kota</title>
+  <title>Koperasi Kota — Shop</title>
+  <meta name="description" content="Belanja mudah dan hemat di Koperasi Kota. Produk lengkap, harga terbaik.">
   <link rel="stylesheet" href="main.css">
   <script src="main.js" defer></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sedgwick+Ave+Display&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
+  <!-- ─── Header ───────────────────────────────────────────── -->
   <header class="bilah-atas">
     <div class="wadah-nav">
-      <div class="logo-area">
-        <img src="KoeprasiKota.jpg" alt="Logo Koperasi Kota" id="logoUtama">
+
+      <div class="logo-area" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <img src="assets/logo%20koperasi.png" alt="Logo Koperasi Kota" class="logo-mark">
       </div>
 
       <div class="area-cari">
-        <input type="text" id="inputCari" placeholder="Cari produk atau kategori di Koperasi Kota...">
+        <input type="text" id="inputCari" placeholder="Cari produk, merek, atau kategori…">
         <button type="button" id="tombolCari">Cari</button>
       </div>
 
-
       <div class="area-user">
-        <span class="salam-user">Halo, <strong id="namaPengguna">Pengguna</strong>!</span>
+        <span class="salam-user">Halo, <strong id="namaPengguna">—</strong></span>
         <button type="button" id="tombolKeranjang" class="tombol-ikon-keranjang">
-          🛒 Keranjang (<span id="badgeKeranjang">0</span>)
+          🛒 Keranjang <span id="badgeKeranjang">0</span>
         </button>
-        <button type="button" id="tombolLogout" class="tombol-keluar">
-          Keluar
-        </button>
+        <button type="button" id="tombolLogout" class="tombol-keluar">Keluar</button>
       </div>
 
     </div>
   </header>
 
+  <!-- ─── Hero Banner — Full-width video ───────────────────── -->
+  <section class="area-banner">
+    <div class="wadah-banner">
+      <!-- Lynae motorcycle video as banner -->
+      <!-- Tumpukan Media Banner -->
+      <video class="banner-media lynae-banner aktif" autoplay muted loop playsinline>
+        <source src="assets/lynae-motorcycle.mp4" type="video/mp4">
+      </video>
+      
+      <video class="banner-media chisa-banner" autoplay muted loop playsinline>
+        <source src="assets/chisa.mp4" type="video/mp4">
+      </video>
+
+      <div class="banner-overlay-gradient"></div>
+
+      <div class="kartu-banner">
+        <div class="banner-badge-group">
+          <span class="tag-resonator">New Drop</span>
+          <span class="tag-limited">Limited</span>
+          <span class="tag-stars">★★★★★</span>
+        </div>
+        <h2>Belanja Hemat,<br><em>Gaya Nggak Habis.</em></h2>
+        <p>Produk pilihan terlengkap untuk anggota koperasi. Diskon spesial hingga 30% setiap hari.</p>
+        <div class="banner-action-row">
+          <a href="#katalog-section" class="btn-banner-action">Lihat Katalog →</a>
+          <span class="banner-spec-pill">Anggota Koperasi Kota</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Filter Bar ────────────────────────────────────────── -->
+  <!-- ─── Filter Bar ────────────────────────────────────────── -->
   <section class="bilah-kontrol">
-    <div class="wadah-kontrol">
+    <button type="button" class="tombol-pemicu-filter" id="btnToggleFilter">
+      <span>🎛️ Filter & Pengurutan</span>
+      <span class="panah-indikator">▼</span>
+    </button>
+
+    <div class="wadah-kontrol" id="areaWadahKontrol">
       <div class="grup-filter">
-        <label for="pilihKategori">Kategori:</label>
+        <label for="pilihKategori">Kategori</label>
         <select id="pilihKategori">
-          <option value="semua">Semua Kategori</option>
+          <option value="semua">Semua</option>
         </select>
       </div>
 
       <div class="grup-urutan">
-        <label for="pilihUrutan">Urutkan:</label>
+        <label for="pilihUrutan">Urutkan</label>
         <select id="pilihUrutan">
-          <option value="bawaan">Paling Sesuai</option>
-          <option value="harga-rendah">Harga Terendah</option>
-          <option value="harga-tinggi">Harga Tertinggi</option>
-          <option value="rating-tinggi">Rating Tertinggi</option>
+          <option value="bawaan">Relevan</option>
+          <option value="harga-rendah">Harga ↑</option>
+          <option value="harga-tinggi">Harga ↓</option>
+          <option value="rating-tinggi">Rating ↓</option>
         </select>
       </div>
 
-    </div>
-  </section>
-
-  <section class="area-banner">
-    <div class="wadah-banner">
-      <div class="kartu-banner">
-        <h2>Belanja Hemat Spesial Anggota Koperasi!</h2>
-        <p>Dapatkan diskon hingga 30% untuk aneka produk pilihan hari ini.</p>
+      <div class="quick-tags-container" id="quickTags">
+        <span class="quick-tag-pill active" data-cat="semua">Semua</span>
+        <span class="quick-tag-pill" data-cat="smartphones">Smartphones</span>
+        <span class="quick-tag-pill" data-cat="laptops">Laptops</span>
+        <span class="quick-tag-pill" data-cat="fragrances">Fragrances</span>
+        <span class="quick-tag-pill" data-cat="skincare">Skincare</span>
       </div>
     </div>
   </section>
 
-
-  <main class="konten-katalog">
+  <!-- ─── Product Catalog ──────────────────────────────────── -->
+  <main class="konten-katalog" id="katalog-section">
     <div class="wadah-utama">
-
       <div class="judul-katalog">
-        <h3>Daftar Produk Koperasi</h3>
-        <span id="infoJumlahProduk">Menampilkan produk...</span>
+        <h3>Katalog Produk</h3>
+        <span id="infoJumlahProduk">Memuat…</span>
       </div>
 
       <div id="pesanErrorProduk" class="pesan-error-global tersembunyi"></div>
+
       <div id="loadingProduk" class="indikator-loading-produk">
-        <span>Memuat data produk...</span>
+        <span>Memuat produk…</span>
       </div>
 
-      <div id="wadahProduk" class="grid-produk">
-      </div>
+      <div id="wadahProduk" class="grid-produk"></div>
 
       <div class="area-muat-lebih">
         <button type="button" id="tombolMuatLebih" class="tombol-muat-lebih tersembunyi">
           Muat Lebih Banyak
         </button>
       </div>
-
     </div>
   </main>
 
+  <!-- ─── Detail Modal ─────────────────────────────────────── -->
   <div id="modalDetail" class="wadah-modal tersembunyi">
     <div class="isi-modal">
-      <button type="button" id="tutupModalDetail" class="tombol-tutup">&times;</button>
+      <button type="button" id="tutupModalDetail" class="tombol-tutup" aria-label="Tutup">&times;</button>
 
       <div class="detail-kiri">
-        <img id="modalGambar" src="" alt="Gambar Produk">
+        <img id="modalGambar" src="" alt="Foto produk">
       </div>
 
       <div class="detail-kanan">
@@ -125,29 +164,27 @@
     </div>
   </div>
 
+  <!-- ─── Cart Modal ───────────────────────────────────────── -->
   <div id="modalKeranjang" class="wadah-modal tersembunyi">
     <div class="isi-modal-keranjang">
       <div class="header-modal-keranjang">
-        <h3>Keranjang Belanja Anda</h3>
-        <button type="button" id="tutupModalKeranjang" class="tombol-tutup">&times;</button>
+        <h3>Keranjang Belanja</h3>
+        <button type="button" id="tutupModalKeranjang" class="tombol-tutup" aria-label="Tutup">&times;</button>
       </div>
 
-
-      <div id="daftarItemKeranjang" class="daftar-item-keranjang">
-      </div>
+      <div id="daftarItemKeranjang" class="daftar-item-keranjang"></div>
 
       <div class="footer-modal-keranjang">
         <div class="total-belanja-area">
-          <span>Total Pembayaran:</span>
+          <span>Total</span>
           <strong id="totalHargaKeranjang">$0.00</strong>
         </div>
         <button type="button" id="tombolKosongkanKeranjang" class="tombol-kosongkan">
-          Kosongkan Keranjang
+          Kosongkan
         </button>
       </div>
     </div>
   </div>
 
 </body>
-
 </html>

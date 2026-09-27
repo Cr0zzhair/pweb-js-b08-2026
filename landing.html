@@ -7,24 +7,32 @@
   <title>Masuk & Daftar - Koperasi Kota</title>
   <link rel="stylesheet" href="landing.css">
   <script src="landing.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sedgwick+Ave+Display&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div class="wadah-landing">
-    <div class="kolom-kiri">
+  <div class="kolom-kiri">
+      <video class="bg-video-kiri" autoplay muted loop playsinline>
+        <source src="assets/shorekeeper.mov" type="video/mp4">
+      </video>
+      <div class="overlay-kiri"></div>
+
       <div class="konten-info">
         <div class="wadah-logo-kiri">
-          <img src="KoeprasiKota.jpg" alt="Logo Koperasi Kota" class="logo-gambar">
+          <img src="assets/logo%20koperasi.png" alt="Logo Koperasi Kota" class="logo-gambar">
         </div>
         <h2>Belanja Mudah & Hemat</h2>
         <p>Pusat belanja kebutuhan pokok dan produk harian terlengkap untuk seluruh warga kota.</p>
       </div>
     </div>
 
+    <!-- KOLOM KANAN (FORM LOGIN / REGIST) -->
     <div class="kolom-kanan">
       <div class="kartu-login">
         <div class="logo-mobile">
-          <img src="KoeprasiKota.jpg" alt="Logo Koperasi Kota" class="logo-gambar-mobile">
+          <img src="assets/logo%20koperasi.png" alt="Logo Koperasi Kota" class="logo-gambar-mobile">
         </div>
 
         <div class="tab-pilihan">
@@ -32,6 +40,7 @@
           <button type="button" id="tabRegist" class="tombol-tab">Daftar Akun</button>
         </div>
 
+        <!-- FORM LOGIN -->
         <div id="wadahFormLogin">
           <div class="header-form">
             <h2>Masuk ke Akun</h2>
@@ -40,6 +49,7 @@
 
           <div id="pesanError" class="pesan-notif pesan-error tersembunyi"></div>
           <div id="pesanSuksesLogin" class="pesan-notif pesan-sukses tersembunyi"></div>
+
           <form id="formLogin">
             <div class="grup-input">
               <label for="inputUser">Username</label>
@@ -55,9 +65,7 @@
               <span class="spinner"></span> Memverifikasi akun...
             </div>
 
-            <button type="submit" id="tombolMasuk" class="tombol-aksi">
-              Masuk
-            </button>
+            <button type="submit" id="tombolMasuk" class="tombol-aksi">Masuk</button>
           </form>
 
           <div class="footer-form">
@@ -65,6 +73,7 @@
           </div>
         </div>
 
+        <!-- FORM REGIST -->
         <div id="wadahFormRegist" class="tersembunyi">
           <div class="header-form">
             <h2>Daftar Akun Baru</h2>
@@ -90,9 +99,7 @@
               <input type="password" id="inputPassBaru" placeholder="Buat password" required>
             </div>
 
-            <button type="submit" id="tombolDaftar" class="tombol-aksi">
-              Daftar Akun
-            </button>
+            <button type="submit" id="tombolDaftar" class="tombol-aksi">Daftar Akun</button>
           </form>
 
           <div class="footer-form">
@@ -103,8 +110,7 @@
       </div>
     </div>
 
-  </div>
-
+  </div> <!-- Penutup .wadah-landing -->
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-if (localStorage.getItem("userFirstName")) window.location.href = "main.html";
+if (localStorage.getItem("userFirstName")) window.location.href = "MainPage.html";
 
 const tabLogin = document.getElementById("tabLogin");
 const tabRegist = document.getElementById("tabRegist");
@@ -45,7 +45,7 @@ formLogin.onsubmit = async (e) => {
             tampilPesan(pesanSukses, `Selamat datang, ${user.firstName || user.nama}!`);
             localStorage.setItem("userFirstName", user.firstName || user.nama);
             localStorage.setItem("username", user.username);
-            setTimeout(() => window.location.href = "main.html", 600);
+            setTimeout(() => window.location.href = "MainPage.html", 600);
         } else {
             tampilPesan(pesanErr, "Username atau password salah!");
         }
